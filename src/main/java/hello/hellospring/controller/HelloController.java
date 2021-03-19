@@ -38,11 +38,13 @@ public class HelloController {
 
     static class Hello {
         private String name; //외부에서 바로 꺼내지 못하고 메서드를 통해서 꺼낼수있음
-        public String getName() { //꺼낼때
+        public String getName() {
+            //꺼낼때
             return name;
         }
 
-        public void setName(String name) { //넣을
+        public void setName(String name) {
+            //넣을때
             this.name = name;
         }
     }
