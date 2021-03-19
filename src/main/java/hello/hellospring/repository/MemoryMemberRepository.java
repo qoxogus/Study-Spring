@@ -12,9 +12,9 @@ public class MemoryMemberRepository implements MemberRepository{
 
     @Override
     public Member save(Member member) {
-        member.setId(++sequence); //스토어에 넣기전에 멤버에 id값을 세팅해주고 (save하기전에 이름은 넘어온상
+        member.setId(++sequence); //스토어에 넣기전에 멤버에 id값을 세팅해주고 (save하기전에 이름은 넘어온상태)
         store.put(member.getId(), member); // 스토어에 저 (Map에 저장이 된다)
-        return member; // 스펙에 따라 저장된 결과 반
+        return member; // 스펙에 따라 저장된 결과 반환
     }
 
     @Override
@@ -25,13 +25,17 @@ public class MemoryMemberRepository implements MemberRepository{
     @Override
     public Optional<Member> findByName(String name) {
         return store.values().stream()
-                .filter(member -> member.getName().equals(name)) //getName이 파라미터로 넘어온 name과 같은지 확인하는 코
+                .filter(member -> member.getName().equals(name)) //getName이 파라미터로 넘어온 name과 같은지 확인하는 코드
                 .findAny();
             //찾아지면 반환 없으면 Optional에 null이 포함되서 반환
     }
 
     @Override
-    public List<Member> findAll() {
+    public List<Member> findAll() { //실무에선 List를 많이 쓴다더라
         return new ArrayList<>(store.values());
+    }
+
+    public void clearStore() {
+        store.clear(); //스토어를 비워주는 코드
     }
 }
