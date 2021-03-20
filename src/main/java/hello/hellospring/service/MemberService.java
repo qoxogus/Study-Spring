@@ -9,7 +9,13 @@ import java.util.Optional;
 
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();     //순서 인터페이스 변수이름 = new MemoryMemberRepository클래스
+//    private final MemberRepository memberRepository = new MemoryMemberRepository();     //순서 인터페이스 변수이름 = new MemoryMemberRepository클래스
+
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) { //MemberService입장에선 memberRepository를 외부에서 넣어준다 (디펜지 인젝션  DI) {장점 : 테스트에 용이하다, 코드의 재사용성 등}
+        this.memberRepository = memberRepository;
+    }
 
     //result.orElseGet(); 값이 있으면 꺼내고 없으면 여기있는 메서드 실행. 이런것도 있다~
 
