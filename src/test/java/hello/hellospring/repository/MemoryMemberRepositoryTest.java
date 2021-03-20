@@ -15,6 +15,7 @@ class MemoryMemberRepositoryTest {
     MemoryMemberRepository repository = new MemoryMemberRepository();
 
     //순서에 의존적으로 설계하면 절대 안된다
+    //테스트는 각각 독립적으로 실행되어야 한다. 테스트 순서에 의존관계가 있는 것은 좋은 테스트가 아니다.
     //테스트를 먼저 짜고 개발을 들어갈수도 있다 (검증틀을 먼저 만들어놓고 구현클래스를 만드는것) 이것을 테스트주도개발, TDD 라고 한다
     //테스트코드는 엄청 중요하다!!!
 
