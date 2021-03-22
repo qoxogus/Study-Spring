@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Repository //@Repository 리포지토리라고 스프링에 선언해주는 것이라고 보면된다
+//@Repository //@Repository 리포지토리라고 스프링에 선언해주는 것이라고 보면된다
 public class MemoryMemberRepository implements MemberRepository{
 
     private static Map<Long, Member> store = new HashMap<>();   //실무에서는 동시성문제가 있을 수 있어서 복류되는 변수일때는 ConcurrentHashMap<>()을 써야하지만 예제니까 단순히 HashMap<>()울 쓴다.
