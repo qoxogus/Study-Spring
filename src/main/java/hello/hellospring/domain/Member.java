@@ -1,8 +1,14 @@
 package hello.hellospring.domain;
 
+import javax.persistence.*;
+
+@Entity //jpa가 관리하는 entity
 public class Member {
 
-    private Long id; // 시스템에서 정해주는 id값
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id; // 시스템에서 정해주는 id값 (PRIMARY KEY)
+
+//    @Column(name = "username") // db컬럼 이름이 username이라면 이렇게 해주면 매핑이 된다.
     private String name; //회원가입할때 적는 이름
 
 
