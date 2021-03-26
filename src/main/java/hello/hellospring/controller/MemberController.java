@@ -19,6 +19,7 @@ public class MemberController {
     @Autowired // @Autowired (연결한다)   스프링 컨테이너가 뜰때 멤버콘트롤러가 생성된다   @Autowired라고 되어있다면 스프링컨테이너에있는 멤버서비스를 가져다가 연결을 해준다
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
+        System.out.println("memberService.getClass() = " + memberService.getClass()); //프록시와 연결되는지 콘솔로그로 확인
     }
 
     @GetMapping("/members/new") //get입 //회원가입 페이지 이동
